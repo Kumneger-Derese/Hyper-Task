@@ -2,6 +2,7 @@ import express from 'express';
 import passport from 'passport';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import dotenv from 'dotenv';
 
 import connectDB from './DB/connectDB.js';
 import userRoute from './Routes/userRoute.js';
@@ -10,6 +11,7 @@ import jwtStrategy from './Config/passport.js';
 import { errorConverter, errorHandler, notFound } from './Middleware/error.js';
 import { port as PORT, frontendUrl } from './Config/config.js';
 
+dotenv.config();
 connectDB();
 
 const app = express();

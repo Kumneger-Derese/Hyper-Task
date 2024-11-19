@@ -1,5 +1,4 @@
 import joi from 'joi';
-process.loadEnvFile('.env');
 
 const envVarSchema = joi
   .object({
