@@ -110,7 +110,7 @@ const refreshAuthTokenService = async (req, res) => {
     }
 
     //Delete a old refresh token document from a collection
-    const oldRefreshToken = await Token.findOneAndDelete({
+    await Token.findOneAndDelete({
       _id: refreshTokenDoc.user,
       token: refreshToken,
       type: tokenType.REFRESH,
