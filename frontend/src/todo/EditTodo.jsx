@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import Modal from '../components/Modal';
 import useTodos from '../queryhook/useTodos';
 import { HiArrowLeft } from 'react-icons/hi2';
+import Loader from '../components/Loader';
 
 const EditTodo = () => {
   const { id } = useParams();
@@ -157,7 +158,7 @@ const EditTodo = () => {
             className='btn w-8/12 bg-accent hover:bg-accent/70 text-slate-900 border-none
         font-bold text-lg'
           >
-            Update
+            {editTodoMutation.isPending ? <Loader /> : 'Update'}
           </button>
 
           <button
@@ -184,7 +185,7 @@ const EditTodo = () => {
                 onClick={handleDelete}
                 className='btn btn-md px-6 btn-error'
               >
-                Delete
+                {deleteTodoMutation.isPending ? <Loader /> : 'Delete'}
               </button>
             </div>
           </Modal>

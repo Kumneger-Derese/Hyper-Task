@@ -77,7 +77,7 @@ const generateAuthTokens = async (res, userId) => {
   await saveToken(refreshToken, userId, refreshTokenExpires, tokenType.REFRESH);
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
-    sameSite: 'strict',
+    sameSite: 'None',
     secure: env === 'production',
     maxAge: refreshTokenExpires.toDate(),
   });

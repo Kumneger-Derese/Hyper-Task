@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Logo from '../components/Logo';
 import useAuth from '../queryhook/useAuth';
+import Loader from '../components/Loader';
 
 const ProfileScreen = () => {
   const userAuth = useSelector((store) => store.auth.userInfo);
@@ -101,7 +102,7 @@ const ProfileScreen = () => {
           </div>
 
           <button type='submit' className='btn ml-4 w-full btn-primary'>
-            Submit
+            {userProfileMutation.isPending ? <Loader /> : 'Submit'}
           </button>
         </form>
       </div>

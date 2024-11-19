@@ -3,6 +3,7 @@ import { FaChevronLeft } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import Logo from '../components/Logo';
 import useAuth from '../queryhook/useAuth';
+import Loader from '../components/Loader';
 
 const RegisterScreen = () => {
   const [userData, setUserData] = useState({
@@ -97,6 +98,7 @@ const RegisterScreen = () => {
 
           <button type='submit' className='btn mb-2 w-full btn-primary'>
             Submit
+            {registerUserMutation.isPending ? <Loader /> : 'Login'}
           </button>
           <p className='w-full'>
             Already registered{' '}

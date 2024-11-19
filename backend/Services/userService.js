@@ -1,10 +1,10 @@
 import httpStatus from 'http-status';
 import User from '../Models/userModel.js';
-import ApiError from '../utils/ApiError.js';
-import { generateAuthTokens, verifyToken } from './tokenService.js';
-import { tokenType } from '../Config/tokens.js';
-import Token from '../Models/tokenModel.js';
 import { env } from '../Config/config.js';
+import ApiError from '../utils/ApiError.js';
+import Token from '../Models/tokenModel.js';
+import { tokenType } from '../Config/tokens.js';
+import { generateAuthTokens, verifyToken } from './tokenService.js';
 
 //Todo: Register user service
 const registerUserService = async (username, email, password) => {
@@ -52,7 +52,7 @@ const logoutUserService = async (req, res) => {
   //clear refresh cookie
   res.clearCookie('refreshToken', {
     httpOnly: true,
-    sameSite: 'strict',
+    sameSite: 'None',
     secure: env === 'production',
   });
 

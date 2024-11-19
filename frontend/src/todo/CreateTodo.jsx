@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../components/Loader';
 import { HiArrowLeft } from 'react-icons/hi2';
 import useTodos from '../queryhook/useTodos';
 
 const CreateTodo = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  // const [completed, setCompleted] = useState(false);
   const [dueDate, setDueDate] = useState('');
   const [priority, setPriority] = useState('');
   const [tags, setTags] = useState({ name: '', color: '' });
@@ -139,7 +139,7 @@ const CreateTodo = () => {
           className='btn bg-accent hover:bg-primary text-slate-900 w-full border-none
         font-bold text-lg'
         >
-          Submit
+          {createTodoMutation.isPending ? <Loader /> : 'Submit'}
         </button>
       </form>
     </div>

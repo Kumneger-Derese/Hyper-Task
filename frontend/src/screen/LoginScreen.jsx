@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Logo from '../components/Logo';
 import { Link } from 'react-router-dom';
 import useAuth from '../queryhook/useAuth';
+import Loader from '../components/Loader';
 import { FaChevronLeft } from 'react-icons/fa6';
 
 const LoginScreen = () => {
@@ -81,7 +82,7 @@ const LoginScreen = () => {
           </div>
 
           <button type='submit' className='btn mb-2 btn-primary'>
-            Login
+            {loginUserMutation.isPending ? <Loader /> : 'Login'}
           </button>
 
           <p>
